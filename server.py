@@ -15,6 +15,11 @@ def emo_detector():
     joy_score = response['joy']
     sadness_score = response['sadness']
     dominant_emotion = response['dominant_emotion']
+    
+    # Error handling for blank / invalid text
+    if dominant_emotion is None:
+        return "Invalid text! Please try again!"
+    
     # Return a formatted string with the scores and dominant emotion
     return (
         f"For the given statement, the system response is 'anger': {anger_score}, 'disgust': {disgust_score}, "
